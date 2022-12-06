@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a9022fda9014749b2f67fd82123306, type: 3}
+  m_Name: Juan
+  m_EditorClassIdentifier: 
+  name: Juan
+  description: 
+  frontSprite: {fileID: -8922328891513336043, guid: e47274a423615b54b899134c49f7697c, type: 3}
+  type1: 1
+  maxSpeed: 80
+  health: 45
+  salary: 100
+  possibleFaults:
+  - faultBase: {fileID: 11400000, guid: a9479d9c4bc74c24f9c78e63dfdabbbd, type: 2}
+    randomized: 1
+  - faultBase: {fileID: 11400000, guid: c17eac50423c156418bb8a78be3857eb, type: 2}
+    randomized: 2
+  - faultBase: {fileID: 11400000, guid: c40aebf31e1f158469702b7355c2f24b, type: 2}
+    randomized: 3
+  - faultBase: {fileID: 11400000, guid: 2386d527b96a15449b335ac3b244cd74, type: 2}
+    randomized: 4

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf28064d4749784596b22f3eea5e41b, type: 3}
+  m_Name: Scold
+  m_EditorClassIdentifier: 
+  name: Scold
+  description: Scold the worker
+  icon: {fileID: 5378418508563256152, guid: 5246adae092eb854082e0153bb983fa8, type: 3}
+  price: 100
+  isSellable: 0
+  speed: 10
+  salary: 0
+  status: 0

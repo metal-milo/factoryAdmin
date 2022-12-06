@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe35aa1defb6c14c90731c15a6c1bb3, type: 3}
+  m_Name: ProdStar
+  m_EditorClassIdentifier: 
+  name: ProdStar
+  description: Production star, increase production in 10%
+  icon: {fileID: -8922328891513336043, guid: e47274a423615b54b899134c49f7697c, type: 3}
+  price: 200
+  isSellable: 0
+  duration: 9
+  sales: 0
+  prod: 1
+  quality: 0
+  isMarket: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe35aa1defb6c14c90731c15a6c1bb3, type: 3}
+  m_Name: SalesStar
+  m_EditorClassIdentifier: 
+  name: SalesStar
+  description: Increase sells every time a customer comes
+  icon: {fileID: 5610367206947713552, guid: e47274a423615b54b899134c49f7697c, type: 3}
+  price: 2000
+  isSellable: 0
+  duration: 2
+  sales: 1
+  prod: 0
+  quality: 0
+  isMarket: 1
