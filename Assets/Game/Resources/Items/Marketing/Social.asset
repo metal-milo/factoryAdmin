@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Social
   description: Advertisement on social media
-  icon: {fileID: 5971196977930839786, guid: 5246adae092eb854082e0153bb983fa8, type: 3}
+  icon: {fileID: 21300000, guid: efa71b26e36462f4db9ed1276d402614, type: 3}
   price: 300
   isSellable: 0
-  duration: 4
+  duration: 5
+  isRaw: 0
+  isProduct: 0
   tv: 0
   radio: 0
   social: 1

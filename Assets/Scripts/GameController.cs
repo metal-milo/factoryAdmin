@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
     float totalEndDay;
     int salaries;
 
-    int finalHour = 12;
+    int finalHour = 16;
     int finalMinute = 59;
 
     bool eventActive = false;
@@ -63,6 +63,8 @@ public class GameController : MonoBehaviour
     EventBase activeEvent;
 
     List<Worker> outsideWorkers = new List<Worker>();
+    public SceneDetails CurrentScene { get; private set; }
+    public SceneDetails PrevScene { get; private set; }
     public GameState State => state;
 
     private void Awake()
@@ -202,11 +204,17 @@ public class GameController : MonoBehaviour
             item.StartMoving();
         }
         var workerParty = playerController.GetComponent<WorkerParty>();
+        for (int i = 0; i < workerParty.Workers.Count; i++)
+        {
+            if (workerCharacters[i] != null)
+                workerCharacters[i].Visible(true);
+        }
+        /*
         foreach (WorkerCharacter workCharact in workerCharacters)
         {
             
             workCharact.Visible(true);
-        }
+        }*/
         
     }
 
@@ -239,10 +247,17 @@ public class GameController : MonoBehaviour
         {
             item.StopMoving();
         }
+        /*
+        for (int i = 0; i <= workerParty.Workers.Count; i++)
+        {
+            if (workerCharacters[i] != null)
+                workerCharacters[i].Visible(false);
+        }
+        */
         foreach (WorkerCharacter workCharact in workerCharacters)
         {
-            
-            workCharact.Visible(false);
+            if (workCharact != null)
+                workCharact.Visible(false);
             
         }
     }
@@ -646,6 +661,13 @@ public class GameController : MonoBehaviour
         return returnMood;
 
     }
+
+    public void SetCurrentScene(SceneDetails currScene)
+    {
+        PrevScene = CurrentScene;
+        CurrentScene = currScene;
+    }
+
 
     private int RandomNumber(int minLimit, int maxLimit)
     {

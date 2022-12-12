@@ -169,53 +169,59 @@ public class InventoryUI : MonoBehaviour
 
         var item = inventory.GetItem(selectedItem, selectedCategory);
 
-
-        if (GameController.Instance.State == GameState.Shop)
+        if (item != null)
         {
-            onItemUsed?.Invoke(item);
-            state = InventoryUIState.ItemSelection;
-            yield break;
-        }
-        else
-        {
-            if (!item.CanUse)
+            if (GameController.Instance.State == GameState.Shop)
             {
-                yield return DialogManager.Instance.ShowDialogText($"This item cannot be used");
+                onItemUsed?.Invoke(item);
                 state = InventoryUIState.ItemSelection;
                 yield break;
             }
-        }
-
-        if (item is MarketingItem)
-        {
-            int selectedChoice = 0;
-            yield return DialogManager.Instance.ShowDialogText($"Do you want to activate {item.Name}?",
-                waitForInput: false,
-                choices: new List<string>() { "Yes", "No" },
-                onChoiceSelected: choiceIndex => selectedChoice = choiceIndex);
-            if (selectedChoice == 0)
+            else
             {
-                var usedItem = inventory.UseMarketItem(selectedItem, marketplace, selectedCategory);
-
-                if (usedItem != null)
+                if (!item.CanUse)
                 {
-                    yield return DialogManager.Instance.ShowDialogText($"Advertisement {item.Name} is active for {item.Duration} hours");
-                    onItemUsed?.Invoke(item);
-                }
-                else
-                {
-                    yield return DialogManager.Instance.ShowDialogText($"Advertisement already active");
+                    yield return DialogManager.Instance.ShowDialogText($"This item cannot be used");
+                    state = InventoryUIState.ItemSelection;
+                    yield break;
                 }
             }
-            state = InventoryUIState.ItemSelection;
-            
+
+            if (item is MarketingItem)
+            {
+                int selectedChoice = 0;
+                yield return DialogManager.Instance.ShowDialogText($"Do you want to activate {item.Name}?",
+                    waitForInput: false,
+                    choices: new List<string>() { "Yes", "No" },
+                    onChoiceSelected: choiceIndex => selectedChoice = choiceIndex);
+                if (selectedChoice == 0)
+                {
+                    var usedItem = inventory.UseMarketItem(selectedItem, marketplace, selectedCategory);
+
+                    if (usedItem != null)
+                    {
+                        yield return DialogManager.Instance.ShowDialogText($"Advertisement {item.Name} is active for {item.Duration} hours");
+                        onItemUsed?.Invoke(item);
+                    }
+                    else
+                    {
+                        yield return DialogManager.Instance.ShowDialogText($"Advertisement already active");
+                    }
+                }
+                state = InventoryUIState.ItemSelection;
+
+            }
+            else
+            {
+                OpenPartyScreen();
+            }
+
         }
         else
         {
-            OpenPartyScreen();
+            state = InventoryUIState.ItemSelection;
+            yield break;
         }
-
-        
 
     }
 

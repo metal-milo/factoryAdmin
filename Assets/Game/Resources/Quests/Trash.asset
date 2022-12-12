@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Trash
   description: Pick up trash
   startDialogue:
-    lines: []
+    lines:
+    - Need to pick all trash boss!
   inProgressDialogue:
     lines:
     - Need to pick all trash boss!

@@ -771,12 +771,12 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 38b39646c4e09bf4396395c3a6f9946a, type: 2}
     count: 4
   - item: {fileID: 11400000, guid: da6b9a0966bca014cac2c667b60af0cd, type: 2}
-    count: 50
+    count: 8
   completeProductSlots:
   - item: {fileID: 11400000, guid: 2447fd6ffd7a9714bac383f71aa9c6ad, type: 2}
-    count: 20
+    count: 5
   - item: {fileID: 11400000, guid: ff0b7f58b644927418d8bd9837268329, type: 2}
-    count: 20
+    count: 5
   items:
   - item: {fileID: 11400000, guid: 734bc686b0e073a45a6d9f8eaffd3d47, type: 2}
     count: 2

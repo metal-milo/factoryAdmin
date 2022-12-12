@@ -53,14 +53,14 @@ public class Rating : MonoBehaviour
     public void AddPositive()
     {
         positive++;
-        RateBase newRate = positives[RandomNumber(0, positives.Count-1)];
+        RateBase newRate = positives[RandomNumber(0, positives.Count)];
         AddRate(newRate);
     }
 
     public void AddNegative()
     {
         negative++;
-        RateBase newRate = negatives[RandomNumber(0, negatives.Count-1)];
+        RateBase newRate = negatives[RandomNumber(0, negatives.Count)];
         AddRate(newRate);
     }
 

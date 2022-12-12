@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Data\ItemDB.cs" />
     <Compile Include="Assets\Scripts\Marketing\UI\MarketingItemUI.cs" />
     <Compile Include="Assets\Scripts\Production\RatingController.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\LocationPortal.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Money.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
     <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollowSetup.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\Scripts\Inventory\ItemGiver.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
+    <Compile Include="Assets\Scripts\SceneManagement\SceneDetails.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\UtilsClass.cs" />
     <Compile Include="Assets\Scripts\Workers\Worker.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\Portal.cs" />

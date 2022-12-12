@@ -62,11 +62,12 @@ public class WorkerCharacter : MonoBehaviour
     
     public void Visible(bool isVisible)
     {
-        gameObject.SetActive(isVisible);
         if (isVisible)
             StartMoving();
         else
             StopMoving();
+        gameObject.SetActive(isVisible);
+        
     }
 
 
