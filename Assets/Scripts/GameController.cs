@@ -51,11 +51,12 @@ public class GameController : MonoBehaviour
     int actualDay=1;
     float initialMoney;
     float spentMoney;
+    float wareHouseCost;
     float sales;
     float totalEndDay;
     int salaries;
 
-    int finalHour = 16;
+    int finalHour = 8;
     int finalMinute = 59;
 
     bool eventActive = false;
@@ -104,7 +105,16 @@ public class GameController : MonoBehaviour
             outsideWorkerCopy.SetStatus(MoodId.happy);
             outsideWorkers.Add(outsideWorkerCopy);
         }
-
+        foreach (WorkerCharacter workCharact in workerCharacters)
+        {
+            workCharact.Visible(false);
+        }
+        var workerParty = playerController.GetComponent<WorkerParty>();
+        for (int i = 0; i < workerParty.Workers.Count; i++)
+        {
+            if (workerCharacters[i] != null)
+                workerCharacters[i].Visible(true);
+        }
 
     }
 
@@ -169,10 +179,7 @@ public class GameController : MonoBehaviour
         //StartCoroutine(daysFader.FadeOut(0.5f));
         marketplace.totalDefectives = 0;
         productionStatus.gameObject.SetActive(false);
-        foreach (WorkerCharacter workCharact in workerCharacters)
-        {
-            workCharact.Visible(false);
-        }
+        
     }
 
     
@@ -232,6 +239,8 @@ public class GameController : MonoBehaviour
     {
         spentMoney = Money.i.MoneySpent;
         sales = Money.i.MoneyFrmSales;
+        var inventory = Inventory.GetInventory();
+        wareHouseCost = inventory.GetWarehouseCost();
         var workerParty = playerController.GetComponent<WorkerParty>();
         int totalSalaries = 0;
         foreach (var worker in workerParty.Workers){
@@ -240,7 +249,7 @@ public class GameController : MonoBehaviour
         }
         salaries = totalSalaries;
         Money.i.TakeMoney(totalSalaries);
-        totalEndDay = initialMoney + sales - spentMoney - salaries;
+        totalEndDay = initialMoney + sales - spentMoney - wareHouseCost - salaries;
         Money.i.RestartMoney();
         InitializeWorkers();
         foreach (BandController item in bandControllers)
@@ -332,7 +341,7 @@ public class GameController : MonoBehaviour
             isEndDay = false;
             state = GameState.Paused;
             
-            StartCoroutine(finishDayFader.FadeIn(0.5f, (int)initialMoney, (int)spentMoney, (int)sales, salaries, (int)totalEndDay));
+            StartCoroutine(finishDayFader.FadeIn(0.5f, (int)initialMoney, (int)spentMoney, (int)wareHouseCost, (int)sales, salaries, (int)totalEndDay));
 
             
             isFadeOutFinishDay = true;
@@ -489,8 +498,8 @@ public class GameController : MonoBehaviour
         else if (selectedMenuItem == 7)
         {
             //load
-            SavingSystem.i.Load("saveSlot1");
-            state = GameState.Free;
+            //SavingSystem.i.Load("saveSlot1");
+            //state = GameState.Free;
         }
         else if (selectedMenuItem == 8)
         {

@@ -10,6 +10,7 @@ public class FinishDayFader : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] Text startMoneyTxt;
     [SerializeField] Text spentMoneyTxt;
+    [SerializeField] Text warehouseTxt;
     [SerializeField] Text salesTxt;
     [SerializeField] Text salariesTxt;
     [SerializeField] Text totalTxt;
@@ -22,10 +23,11 @@ public class FinishDayFader : MonoBehaviour
 
 
 
-    public IEnumerator FadeIn(float time, int startMoney, int spentMoney, int sales, int salaries, int total)
+    public IEnumerator FadeIn(float time, int startMoney, int spentMoney, int warehouseCost, int sales, int salaries, int total)
     {
         yield return startMoneyTxt.DOFade(1f, time);
         yield return spentMoneyTxt.DOFade(1f, time);
+        yield return warehouseTxt.DOFade(1f, time);
         yield return salesTxt.DOFade(1f, time);
         yield return totalTxt.DOFade(1f, time);
         yield return salariesTxt.DOFade(1f, time);
@@ -35,6 +37,9 @@ public class FinishDayFader : MonoBehaviour
 
         spentMoneyTxt.text = "Spent money: " + spentMoney;
         spentMoneyTxt.gameObject.SetActive(true);
+
+        warehouseTxt.text = "Warehouse cost: " + warehouseCost;
+        warehouseTxt.gameObject.SetActive(true);
 
         salesTxt.text = "Sales: " + sales;
         salesTxt.gameObject.SetActive(true);
@@ -53,6 +58,7 @@ public class FinishDayFader : MonoBehaviour
         yield return image.DOFade(0f, time).WaitForCompletion();
         yield return startMoneyTxt.DOFade(0f, time);
         yield return spentMoneyTxt.DOFade(0f, time);
+        yield return warehouseTxt.DOFade(0f, time);
         yield return salesTxt.DOFade(0f, time);
         yield return totalTxt.DOFade(0f, time);
         yield return salariesTxt.DOFade(0f, time);

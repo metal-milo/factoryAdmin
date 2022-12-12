@@ -179,6 +179,14 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
+    public float GetWarehouseCost()
+    {
+        float warehouseCosts = 0f;
+        foreach (var product in completeProductSlots){
+            warehouseCosts += (product.Item.Price / 4) * product.Count;
+        }
+        return warehouseCosts;
+    }
 
 }
 

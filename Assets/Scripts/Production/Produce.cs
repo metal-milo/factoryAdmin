@@ -115,6 +115,7 @@ public class Produce : MonoBehaviour
         else
         {
             Debug.Log("no hay materia prima");
+            yield return DialogManager.Instance.ShowDialogText($"Need to buy material!");
         }
         yield return null;
     }

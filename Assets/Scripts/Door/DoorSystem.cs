@@ -33,6 +33,7 @@ public class DoorSystem : MonoBehaviour
 
     private void Awake()
     {
+        workerHud.activateTexts();
         prodText.text = "Expected Products: " + totalProd + " Today";
         defText.text = "Defectives: " + totalDefectives + "%";
     }
